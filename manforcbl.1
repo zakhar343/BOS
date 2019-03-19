@@ -1,0 +1,15 @@
+.TH controlbl 1  "March 18, 2019" "version 0.1"
+.SH NAME
+controlbl \- controls that programms from blacklist ate disabled.
+.SH DESCRIPTION 
+This tool controls the fact that programms from /etc/blacklist are disabled
+each 60s. If something from blaclist is running this tool will kill it. You can make it work immediately by sending USR1. The PID of programm you can see in 
+journal.
+.SH ACTIVATION
+To enable this tool you have to do: 
+.TP
+sudo systemctl enable task
+sudo systemctl start task
+.SH AUTHORS
+Zakharov Dmitriy  Golovnyak Pavel  Hayrapetyan Sergey  Sultonov Azamat   
+
