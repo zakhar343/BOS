@@ -1,15 +1,27 @@
 .TH controlbl 1  "March 18, 2019" "version 0.1"
 .SH NAME
-controlbl \- controls that programms from blacklist ate disabled.
+controlbl \- controls the fact that programs from the blacklist are not running.
 .SH DESCRIPTION 
-This tool controls the fact that programms from /etc/blacklist are disabled
-each 60s. If something from blaclist is running this tool will kill it. You can make it work immediately by sending USR1. The PID of programm you can see in 
-journal.
+This tool controls the fact that programms from blacklist are not running
+each 60s. If something from blacklist is running this tool will kill it. You can make it work immediately by sending USR1. The PID of the program can be obtained and the journal.
 .SH ACTIVATION
-To enable this tool you have to do: 
+In order to start this service you need to run the following commands: 
 .TP
 sudo systemctl enable task
+.RE
 sudo systemctl start task
+.SH STATUS
+To request the status of a running service you need to run following commands:
+.TP
+sudo systemctl status task
+.SH TERMINATION
+To stop a running service you need to run following commands:
+.TP
+sudo systemctl stop task
+.SH FILES
+.I /etc/blacklist
+.RS
+The blacklist file. It contains the names of prohibited processes, they are written line by line.
 .SH AUTHORS
 Zakharov Dmitriy  Golovnyak Pavel  Hayrapetyan Sergey  Sultonov Azamat   
 
