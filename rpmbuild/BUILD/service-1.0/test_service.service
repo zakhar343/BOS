@@ -1,0 +1,11 @@
+[Unit]
+Description=Test
+After= network.target
+
+[Service]
+Type=simple
+ExecStart=/bin/bash /opt/service.sh
+ExecStop=/bin/kill -15 $MAINPID
+
+[Install]
+WantedBy=multi-user.target
