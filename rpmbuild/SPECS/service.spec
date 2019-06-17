@@ -6,7 +6,7 @@ restorecon -R /home; \
 
 %define selinux_policyver 3.13.1-229
 Name:          service
-Version:       1.0
+Version:       1.1
 Release:       1%{?dist}
 Summary:       Сервис 5-ой группы
 Group:         Testing
