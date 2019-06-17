@@ -1,0 +1,40 @@
+
+## <summary>policy for controlbl</summary>
+
+########################################
+## <summary>
+##	Execute controlbl_exec_t in the controlbl domain.
+## </summary>
+## <param name="domain">
+## <summary>
+##	Domain allowed to transition.
+## </summary>
+## </param>
+#
+interface(`controlbl_domtrans',`
+	gen_require(`
+		type controlbl_t, controlbl_exec_t;
+	')
+
+	corecmd_search_bin($1)
+	domtrans_pattern($1, controlbl_exec_t, controlbl_t)
+')
+
+######################################
+## <summary>
+##	Execute controlbl in the caller domain.
+## </summary>
+## <param name="domain">
+##	<summary>
+##	Domain allowed access.
+##	</summary>
+## </param>
+#
+interface(`controlbl_exec',`
+	gen_require(`
+		type controlbl_exec_t;
+	')
+
+	corecmd_search_bin($1)
+	can_exec($1, controlbl_exec_t)
+')

@@ -1,0 +1,21 @@
+policy_module(controlbl, 1.0.0)
+
+########################################
+#
+# Declarations
+#
+
+type controlbl_t;
+type controlbl_exec_t;
+init_daemon_domain(controlbl_t, controlbl_exec_t)
+
+########################################
+#
+# controlbl local policy
+#
+allow controlbl_t self:fifo_file rw_fifo_file_perms;
+allow controlbl_t self:unix_stream_socket create_stream_socket_perms;
+
+domain_use_interactive_fds(controlbl_t)
+
+files_rw_etc_files(controlbl_t)
