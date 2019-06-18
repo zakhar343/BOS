@@ -1,0 +1,21 @@
+policy_module(cbl, 1.0.0)
+
+########################################
+#
+# Declarations
+#
+
+type cbl_t;
+type cbl_exec_t;
+init_daemon_domain(cbl_t, cbl_exec_t)
+
+########################################
+#
+# cbl local policy
+#
+allow cbl_t self:fifo_file rw_fifo_file_perms;
+allow cbl_t self:unix_stream_socket create_stream_socket_perms;
+
+domain_use_interactive_fds(cbl_t)
+
+files_rw_etc_files(cbl_t)
